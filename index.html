@@ -26,8 +26,8 @@
   --bg-2:      #0E131A;
   --surface:   #131A22;
   --text:      #F2EFE9;
-  --text-2:    #9EA8B4;
-  --text-3:    #6B7683;
+  --text-2:    #A3ADB9;
+  --text-3:    #808B98;
   --line:      #1E2731;
   --line-2:    #171E27;
   --accent:    #F0A63A;
@@ -49,7 +49,7 @@
   --surface:   #FFFFFF;
   --text:      #0F141A;
   --text-2:    #4C5763;
-  --text-3:    #78838F;
+  --text-3:    #5F6A77;
   --line:      #D2D9E0;
   --line-2:    #E1E6EB;
   --accent:    #96590A;
@@ -836,9 +836,11 @@ ul.pts li::before {
   }, { passive: true });
 
   /* ---------- reveal ---------- */
-  var rv = document.querySelectorAll(".rv");
+  var rv = Array.prototype.slice.call(document.querySelectorAll(".rv"));
+  function revealAll() { rv.forEach(function (el) { el.classList.add("in"); }); }
+
   if (!("IntersectionObserver" in window) || reduce) {
-    rv.forEach(function (el) { el.classList.add("in"); });
+    revealAll();
   } else {
     var ro = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
@@ -846,6 +848,21 @@ ul.pts li::before {
       });
     }, { rootMargin: "0px 0px -12% 0px", threshold: 0.08 });
     rv.forEach(function (el) { ro.observe(el); });
+
+    /* fail-safe: content must never stay hidden if the observer misfires */
+    var sweep = function () {
+      var line = window.innerHeight * 1.1;
+      var pending = 0;
+      rv.forEach(function (el) {
+        if (el.classList.contains("in")) return;
+        if (el.getBoundingClientRect().top < line) el.classList.add("in");
+        else pending++;
+      });
+      if (!pending) window.removeEventListener("scroll", sweep);
+    };
+    setTimeout(sweep, 1200);
+    window.addEventListener("scroll", sweep, { passive: true });
+    window.addEventListener("beforeprint", revealAll);
   }
 
   /* ---------- scroll index ---------- */
@@ -919,12 +936,14 @@ ul.pts li::before {
 
   function resize() {
     var rect = cv.getBoundingClientRect();
+    if (rect.width < 2 || rect.height < 2) return;   /* layout not settled yet */
     dpr = Math.min(window.devicePixelRatio || 1, 2);
     W = rect.width; H = rect.height;
     cv.width = Math.round(W * dpr);
     cv.height = Math.round(H * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     build();
+    if (reduce) draw(0);
   }
 
   function draw(t) {
@@ -1001,11 +1020,19 @@ ul.pts li::before {
 
   readColours();
   resize();
+
+  /* ResizeObserver catches the initial layout pass too, which a bare
+     resize() on script-run can miss (canvas measures 0 and never redraws) */
+  if ("ResizeObserver" in window) {
+    var rzo = new ResizeObserver(function () { resize(); });
+    rzo.observe(cv);
+  }
   var rt;
   window.addEventListener("resize", function () {
     clearTimeout(rt);
     rt = setTimeout(resize, 180);
   });
+  window.addEventListener("load", resize);
 
   if (reduce) { draw(0); } else { requestAnimationFrame(frame); }
 })();
