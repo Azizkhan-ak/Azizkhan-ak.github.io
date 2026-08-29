@@ -307,18 +307,19 @@ h1 .last { color: var(--accent-text); display: block; }
 .shot-wrap {
   position: relative;
   z-index: 1;
-  width: min(100%, 23rem);
+  width: min(100%, 21rem);
 }
 .shot {
   position: relative;
   width: 100%;
+  aspect-ratio: 1;
   border-radius: var(--r-xl);
   overflow: hidden;
   border: 1px solid var(--line);
   box-shadow: var(--shadow-lg);
   background: var(--surface);
 }
-.shot img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+.shot img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; }
 
 .float {
   position: absolute;
@@ -752,11 +753,14 @@ footer {
           <h3>Senior Software Engineer <em>/ Data Consultant</em></h3>
           <span class="when">Jun 2025 — Apr 2026</span>
         </div>
-        <p class="org"><b>Quorum</b> · Burlington, USA · remote</p>
+        <p class="org"><b>Quorum Data, Inc.</b> · Burlington, USA · remote<br>
+        <em>Independent real-world ad measurement &amp; targeting — resolving ad exposures and
+        web-pixel traffic to US households for deterministic store-visit attribution.</em></p>
         <ul>
           <li>Designed and built high-performance Java/Spring Boot services for a large-scale digital advertising platform serving US enterprise clients.</li>
           <li>Redesigned the pixel reporting database schema, cutting query execution time by roughly <strong>45%</strong> and enabling near real-time analytics.</li>
           <li>Built ETL pipelines ingesting pixel data from AWS S3, client repositories, and third-party APIs into <strong>Snowflake and PostgreSQL</strong>.</li>
+          <li>Worked on the location-intelligence and <strong>visit-attribution</strong> side of the platform — turning raw pixel and device-movement signal into the store-visit outcomes the product reports on.</li>
           <li>Developed reporting workflows with SQL and Jasper Reports; served as technical owner of client-facing backend services.</li>
           <li>Integrated with B2B advertising platforms including Viant, Xandr, LiveRamp, Facebook, and TikTok.</li>
         </ul>
@@ -806,10 +810,10 @@ footer {
         <span class="stack">Spring Boot · Kafka · AWS EKS · PostgreSQL/RDS · Vault · Airflow · GitHub Actions</span>
       </article>
       <article class="card rv">
-        <span class="tagline">Ad-tech · 2022—2026</span>
-        <h3>Quorum Advertising Platform</h3>
-        <p>Audience capture and campaign management for out-of-home and digital advertising, integrating Facebook, TikTok, LiveRamp, Viant, and Xandr, with a near real-time pixel reporting layer.</p>
-        <span class="stack">Java · Spring Boot · Snowflake · PostgreSQL · AWS · Jasper Reports</span>
+        <span class="tagline">Ad-tech · measurement · 2022—2026</span>
+        <h3>Quorum Measurement Platform</h3>
+        <p>Independent real-world measurement and targeting: resolving ad exposures, web-pixel traffic, and first-party data into household-level records, then attributing them to physical store visits. I owned backend services and the reporting/ETL layer behind it.</p>
+        <span class="stack">Java · Spring Boot · Snowflake · PostgreSQL · AWS · Jasper Reports · LiveRamp · Xandr</span>
       </article>
       <article class="card rv">
         <span class="tagline">Enterprise · 2022—2025</span>
