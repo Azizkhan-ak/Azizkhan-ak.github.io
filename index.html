@@ -10,6 +10,8 @@
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Aziz Ullah — Senior Backend Engineer">
 <meta property="og:description" content="Java, Spring Boot, AWS. Microservices, event streaming, and data pipelines for Nordstrom, Quorum, and enterprise ERP.">
+<meta property="og:url" content="https://azizkhan-ak.github.io/">
+<meta property="og:image" content="https://azizkhan-ak.github.io/profile.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230A0D12'/><text y='.9em' x='.12em' font-size='78' font-family='monospace' font-weight='700' fill='%23F0A63A'>A</text></svg>">
@@ -59,18 +61,18 @@
    TOKENS
    ============================================================ */
 :root {
-  --bg:        #0A0D12;
-  --bg-2:      #0E131A;
-  --surface:   #131A22;
-  --text:      #F2EFE9;
-  --text-2:    #A3ADB9;
-  --text-3:    #808B98;
-  --line:      #1E2731;
-  --line-2:    #171E27;
-  --accent:    #F0A63A;
-  --accent-dim:#8A6224;
-  --graph:     #6FA8C7;
-  --shadow:    0 1px 0 rgba(255,255,255,.03), 0 24px 60px -30px rgba(0,0,0,.9);
+  --bg:        #F7F6F3;
+  --bg-2:      #FFFFFF;
+  --surface:   #FFFFFF;
+  --text:      #131A2B;
+  --text-2:    #545E76;
+  --text-3:    #656F85;
+  --line:      #DFDCD5;
+  --line-2:    #EAE7E1;
+  --accent:    #B04A1C;
+  --accent-dim:#C08862;
+  --graph:     #7C88A3;
+  --shadow:    0 1px 0 rgba(255,255,255,.9), 0 22px 48px -30px rgba(19,26,43,.34);
 
   --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
   --body:    "Source Serif 4", Georgia, serif;
@@ -80,38 +82,22 @@
   --measure: 66ch;
 }
 
-/* dark is the default; light applies when the OS asks for it and the
-   reader has not chosen otherwise, or when the toggle sets it explicitly */
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) {
-    --bg:        #EDEFF2;
-    --bg-2:      #F5F6F8;
-    --surface:   #FFFFFF;
-    --text:      #0F141A;
-    --text-2:    #4C5763;
-    --text-3:    #5F6A77;
-    --line:      #D2D9E0;
-    --line-2:    #E1E6EB;
-    --accent:    #96590A;
-    --accent-dim:#C79A55;
-    --graph:     #4B7E9E;
-    --shadow:    0 1px 0 rgba(255,255,255,.8), 0 20px 44px -28px rgba(15,20,26,.35);
-  }
-}
+/* Light is the design default. Dark is a deliberate opt-in via the
+   toggle, not an automatic response to the OS setting. */
 
-:root[data-theme="light"] {
-  --bg:        #EDEFF2;
-  --bg-2:      #F5F6F8;
-  --surface:   #FFFFFF;
-  --text:      #0F141A;
-  --text-2:    #4C5763;
-  --text-3:    #5F6A77;
-  --line:      #D2D9E0;
-  --line-2:    #E1E6EB;
-  --accent:    #96590A;
-  --accent-dim:#C79A55;
-  --graph:     #4B7E9E;
-  --shadow:    0 1px 0 rgba(255,255,255,.8), 0 20px 44px -28px rgba(15,20,26,.35);
+:root[data-theme="dark"] {
+  --bg:        #0E1116;
+  --bg-2:      #141922;
+  --surface:   #161C25;
+  --text:      #F2F0EB;
+  --text-2:    #A6AEBD;
+  --text-3:    #8B94A4;
+  --line:      #242A36;
+  --line-2:    #1B212B;
+  --accent:    #E8814C;
+  --accent-dim:#8E5232;
+  --graph:     #78859F;
+  --shadow:    0 1px 0 rgba(255,255,255,.03), 0 24px 60px -30px rgba(0,0,0,.9);
 }
 
 * { box-sizing: border-box; }
@@ -280,7 +266,54 @@ h2.head {
   background: radial-gradient(120% 80% at 18% 42%, transparent 0%, var(--bg) 78%);
   pointer-events: none;
 }
-.hero .wrap { position: relative; z-index: 2; width: 100%; padding-top: 5rem; padding-bottom: 3rem; }
+.hero .wrap {
+  position: relative; z-index: 2; width: 100%;
+  padding-top: 5rem; padding-bottom: 3rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 2.5rem 3rem;
+}
+.hero .col { min-width: 0; }
+
+.portrait {
+  position: relative;
+  align-self: end;
+  opacity: 0;
+  animation: fade .9s ease .34s forwards;
+}
+.portrait img {
+  display: block;
+  width: clamp(9rem, 17vw, 14rem);
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  filter: saturate(.92) contrast(1.02);
+}
+.portrait figcaption {
+  margin-top: .75rem;
+  font-family: var(--mono);
+  font-size: .62rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+}
+.portrait figcaption::before {
+  content: "";
+  width: 1.1rem; height: 1px; background: var(--accent);
+}
+@media (max-width: 60rem) {
+  .hero .wrap { grid-template-columns: 1fr; align-items: start; gap: 1.75rem; }
+  .portrait { order: -1; }
+  .portrait img { width: 5.5rem; }
+  .portrait figcaption { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .portrait { animation: none; opacity: 1; } }
 
 .kicker {
   font-family: var(--mono);
@@ -493,6 +526,16 @@ ul.pts li::before {
 /* ============================================================
    WORK CARDS
    ============================================================ */
+.note {
+  max-width: var(--measure);
+  margin: -.35rem 0 2.5rem;
+  padding-left: 1.15rem;
+  border-left: 2px solid var(--accent);
+  color: var(--text-2);
+  font-size: 1rem;
+  line-height: 1.62;
+}
+
 .work { display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: 1.25rem; }
 .card {
   background: var(--surface);
@@ -669,6 +712,7 @@ ul.pts li::before {
 <div class="hero" id="top">
   <canvas id="topo" aria-hidden="true"></canvas>
   <div class="wrap">
+    <div class="col">
     <p class="kicker">Senior Backend Engineer · Karachi, PK</p>
     <h1>
       <span class="ln"><span>Aziz</span></span>
@@ -685,6 +729,13 @@ ul.pts li::before {
       <a href="https://www.linkedin.com/in/aziz-u-490631180/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://github.com/Azizkhan-ak" target="_blank" rel="noopener">GitHub</a>
     </div>
+    </div>
+
+    <figure class="portrait">
+      <img src="profile.jpg" width="480" height="480"
+           alt="Aziz Ullah" loading="eager" decoding="async">
+      <figcaption>Karachi, PK</figcaption>
+    </figure>
   </div>
 </div>
 
@@ -697,13 +748,14 @@ ul.pts li::before {
       US clients — <em>retail inventory at Nordstrom</em>, <em>digital advertising at Quorum</em>,
       and <em>pharmaceutical ERP</em> before that. Microservices architecture, REST and GraphQL
       APIs, ETL pipelines, CI/CD automation. The work I like best is the unglamorous kind:
-      finding why a query takes nine seconds, or why a service falls over at peak.
+      finding why a query takes nine seconds, or what it takes to hold fifteen thousand
+      transactions a second without one falling over.
     </p>
 
     <div class="stats rv">
       <div class="stat"><span class="n">4+</span><span class="k">Years shipping<br>production backends</span></div>
       <div class="stat"><span class="n">45%</span><span class="k">Faster reporting queries<br>after schema redesign</span></div>
-      <div class="stat"><span class="n">1,500</span><span class="k">TPS load target<br>validated under test</span></div>
+      <div class="stat"><span class="n">15K</span><span class="k">TPS sustained<br>in load testing</span></div>
       <div class="stat"><span class="n">3</span><span class="k">Domains: retail,<br>ad-tech, pharma ERP</span></div>
     </div>
   </div>
@@ -728,13 +780,15 @@ ul.pts li::before {
           <li>Led the end-to-end <strong>CI/CD migration from GitLab CI to GitHub Actions</strong> — pipeline stages, secrets management, deployment workflows.</li>
           <li>Managed secrets with HashiCorp Vault, wiring dynamic injection into both pipelines and Spring Boot service configuration.</li>
           <li>Designed Apache Airflow DAGs orchestrating scheduled pipeline tasks, ETL workflows, and operational automation.</li>
-          <li>Ran JMeter load tests against a <strong>1,500 TPS target</strong>; diagnosed and resolved Redis pipeline saturation and circuit-breaker instability under peak concurrency.</li>
+          <li>Load-tested the platform to <strong>15,000 TPS</strong> with JMeter, handling JVM warm-up so freshly scheduled pods took peak traffic without a first-request latency cliff.</li>
+          <li>Tuned Kubernetes <strong>HPA thresholds and min/max pod counts</strong> against observed throughput, and raised cache hit rates by reworking key design and TTLs — cutting datastore load at peak.</li>
+          <li>Diagnosed and resolved Redis pipeline saturation and circuit-breaker instability under sustained peak concurrency.</li>
           <li>Used New Relic (NRQL) for observability, latency monitoring, and proactive alerting across OVI microservices.</li>
           <li>Operated a polyglot AWS estate (EKS, RDS, S3, SQS, Lambda, IAM) with Kafka for event-driven inventory streaming; local Kubernetes on Rancher Desktop mirroring production EKS.</li>
           <li>Handled production deployment approvals during soft-freeze windows, coordinating releases with cross-functional stakeholders.</li>
         </ul>
         <div class="tags">
-          <span class="tag">Spring Boot</span><span class="tag">Kafka</span><span class="tag">PostgreSQL</span><span class="tag">Flyway</span><span class="tag">AWS EKS</span><span class="tag">Airflow</span><span class="tag">Vault</span><span class="tag">GitHub Actions</span><span class="tag">New Relic</span><span class="tag">JMeter</span><span class="tag">Redis</span>
+          <span class="tag">Spring Boot</span><span class="tag">Kafka</span><span class="tag">PostgreSQL</span><span class="tag">Flyway</span><span class="tag">AWS EKS</span><span class="tag">Airflow</span><span class="tag">Vault</span><span class="tag">GitHub Actions</span><span class="tag">New Relic</span><span class="tag">JMeter</span><span class="tag">Redis</span><span class="tag">HPA autoscaling</span><span class="tag">Caching</span>
         </div>
       </div>
     </article>
@@ -782,6 +836,12 @@ ul.pts li::before {
   <div class="wrap">
     <p class="eyebrow rv"><b>03</b> Selected work</p>
     <h2 class="head rv">Three platforms, one discipline.</h2>
+    <p class="note rv">
+      A note on public code: I don't keep a shelf of side projects. My work is enterprise
+      systems — retail inventory, advertising platforms, ERP — built inside client
+      organisations, under NDA and in private repositories. What follows is production
+      software running a business, not weekend repositories.
+    </p>
     <div class="work">
       <article class="card rv">
         <span class="no">Retail · 2026—</span>
@@ -872,12 +932,10 @@ ul.pts li::before {
   try { saved = localStorage.getItem("theme"); } catch (e) { saved = null; }
   if (saved) root.setAttribute("data-theme", saved);
 
-  /* CSS already resolves the unset case from prefers-color-scheme,
-     so read back what is actually rendering rather than assuming dark */
+  /* light is the default; only an explicit stamp switches to dark */
   function effective() {
     var set = root.getAttribute("data-theme");
-    if (set === "light" || set === "dark") return set;
-    return window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+    return set === "dark" ? "dark" : "light";
   }
   function syncBtn() { btn.textContent = effective() === "light" ? "Dark" : "Light"; }
   syncBtn();
