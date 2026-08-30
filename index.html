@@ -453,33 +453,41 @@ h2 {
 }
 
 /* testimonial */
+.quotes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
 .quote-card {
   position: relative;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--r-xl);
   box-shadow: var(--shadow-md);
-  padding: clamp(1.75rem, 4vw, 3rem);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .quote-card::before {
   content: "C";
   position: absolute;
   top: -.15em;
   left: .35em;
-  font-size: clamp(5rem, 12vw, 8rem);
+  font-size: clamp(3.5rem, 7vw, 5.25rem);
   line-height: 1;
   color: var(--accent);
-  opacity: .16;
+  opacity: .15;
   pointer-events: none;
 }
 .quote-card blockquote {
   position: relative;
   margin: 0;
-  font-size: clamp(1.05rem, 2.3vw, 1.3rem);
-  line-height: 1.62;
-  letter-spacing: -.011em;
+  font-size: clamp(.98rem, 1.5vw, 1.08rem);
+  line-height: 1.65;
+  letter-spacing: -.008em;
   color: var(--text);
-  max-width: 48rem;
 }
 .quote-card blockquote p { margin: 0 0 1rem; }
 .quote-card blockquote p:last-child { margin-bottom: 0; }
@@ -488,8 +496,8 @@ h2 {
   display: flex;
   align-items: center;
   gap: .9rem;
-  margin-top: 1.9rem;
-  padding-top: 1.5rem;
+  margin-top: auto;
+  padding-top: 1.4rem;
   border-top: 1px solid var(--line-soft);
   flex-wrap: wrap;
 }
@@ -833,7 +841,9 @@ footer {
 <section id="recommendation">
   <div class="shell">
     <p class="eyebrow rv">Recommendation</p>
-    <h2 class="rv">From the person who managed the work.</h2>
+    <h2 class="rv">From the people who managed the work.</h2>
+    <p class="sec-intro rv">Both from Quorum leadership — the COO and my manager of three years.</p>
+    <div class="quotes">
     <div class="quote-card rv">
       <blockquote>
         <p>
@@ -856,6 +866,31 @@ footer {
         </span>
         <span class="src">LinkedIn · Apr 2026</span>
       </div>
+    </div>
+
+    <div class="quote-card rv">
+      <blockquote>
+        <p>
+          Aziz consistently demonstrated a strong command of software engineering principles,
+          particularly in <strong>data analytics</strong>, backend development with
+          <strong>Java Spring</strong>, and scripting with <strong>Python</strong>. He has a keen
+          ability to break down complex problems into manageable components and deliver robust,
+          maintainable code on time.
+        </p>
+        <p>
+          If you're looking for a talented engineer who combines technical excellence with
+          professionalism and grit, I wholeheartedly recommend Aziz Ullah.
+        </p>
+      </blockquote>
+      <div class="byline">
+        <span class="av" aria-hidden="true">AA</span>
+        <span class="who">
+          <b>Ali Asghar</b>
+          <span>Manager at Quorum — managed Aziz directly for three years</span>
+        </span>
+        <span class="src">LinkedIn · Apr 2025</span>
+      </div>
+    </div>
     </div>
   </div>
 </section>
