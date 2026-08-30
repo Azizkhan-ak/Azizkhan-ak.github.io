@@ -471,7 +471,7 @@ h2 {
   flex-direction: column;
 }
 .quote-card::before {
-  content: "C";
+  content: "“";
   position: absolute;
   top: -.15em;
   left: .35em;
@@ -556,7 +556,12 @@ h2 {
   transition: border-color .2s ease;
 }
 .ext:hover { border-bottom-color: var(--accent); }
-.ext::after { content: " 97"; font-weight: 400; }
+.ext .arr {
+  width: .68em; height: .68em;
+  display: inline-block;
+  vertical-align: -.02em;
+  margin-left: .18em;
+}
 
 .card .links {
   margin-top: auto;
@@ -819,7 +824,7 @@ footer {
           <h3>Senior Software Engineer <em>/ Data Consultant</em></h3>
           <span class="when">Jun 2025 — Apr 2026</span>
         </div>
-        <p class="org"><b><a class="ext" href="https://quorum.inc" target="_blank" rel="noopener">Quorum Data, Inc.</a></b> · Burlington, USA · remote<br>
+        <p class="org"><b><a class="ext" href="https://quorum.inc" target="_blank" rel="noopener">Quorum Data, Inc.<svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a></b> · Burlington, USA · remote<br>
         <em>Independent real-world ad measurement and targeting — resolving ad exposures,
         web-pixel traffic and first-party client data to US households, then attributing them to
         deterministic store visits across CTV, streaming, programmatic and the open web.
@@ -865,7 +870,7 @@ footer {
   <div class="shell">
     <p class="eyebrow rv">Recommendation</p>
     <h2 class="rv">From the people who managed the work.</h2>
-    <p class="sec-intro rv">Both from Quorum leadership — the COO and my manager of three years.</p>
+    <p class="sec-intro rv">Quorum’s COO, and my manager of three years at Macrosoft.</p>
     <div class="quotes">
     <div class="quote-card rv">
       <blockquote>
@@ -909,7 +914,7 @@ footer {
         <span class="av" aria-hidden="true">AA</span>
         <span class="who">
           <b>Ali Asghar</b>
-          <span>Manager at Quorum — managed Aziz directly for three years</span>
+          <span>Manager at Macrosoft Pakistan — managed Aziz directly for three years</span>
         </span>
         <span class="src">LinkedIn · Apr 2025</span>
       </div>
@@ -943,7 +948,7 @@ footer {
         <p>Independent real-world measurement and targeting: a pipeline ingesting billions of ad impressions, resolving them to households, and driving real-time attribution reporting for hundreds of advertising agencies — the deterministic answer to who a campaign reached and whether it drove a store visit. I owned backend services and the reporting/ETL layer behind it.</p>
         <div class="links">
           <span class="stack">Java · Spring Boot · Snowflake · PostgreSQL · AWS · Jasper Reports · LiveRamp · Xandr</span>
-          <a class="ext" href="https://quorum.inc" target="_blank" rel="noopener">quorum.inc</a>
+          <a class="ext" href="https://quorum.inc" target="_blank" rel="noopener">quorum.inc<svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
         </div>
       </article>
       <article class="card rv">
