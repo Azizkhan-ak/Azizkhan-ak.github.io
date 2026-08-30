@@ -549,6 +549,27 @@ h2 {
 }
 .card h3 { margin: 0; font-size: 1.14rem; font-weight: 700; letter-spacing: -.02em; }
 .card p { margin: 0; color: var(--text-2); font-size: .95rem; }
+.ext {
+  color: var(--accent-text);
+  font-weight: 600;
+  border-bottom: 1px solid var(--accent-ring);
+  transition: border-color .2s ease;
+}
+.ext:hover { border-bottom-color: var(--accent); }
+.ext::after { content: " 97"; font-weight: 400; }
+
+.card .links {
+  margin-top: auto;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--line-soft);
+  display: flex;
+  flex-wrap: wrap;
+  gap: .25rem .75rem;
+  align-items: baseline;
+}
+.card .links .stack { margin: 0; padding: 0; border: 0; flex: 1 1 100%; }
+.card .links a { font-family: var(--mono); font-size: .7rem; }
+
 .card .stack {
   margin-top: auto;
   padding-top: 1.1rem;
@@ -798,9 +819,11 @@ footer {
           <h3>Senior Software Engineer <em>/ Data Consultant</em></h3>
           <span class="when">Jun 2025 — Apr 2026</span>
         </div>
-        <p class="org"><b>Quorum Data, Inc.</b> · Burlington, USA · remote<br>
-        <em>Independent real-world ad measurement &amp; targeting — resolving ad exposures and
-        web-pixel traffic to US households for deterministic store-visit attribution.</em></p>
+        <p class="org"><b><a class="ext" href="https://quorum.inc" target="_blank" rel="noopener">Quorum Data, Inc.</a></b> · Burlington, USA · remote<br>
+        <em>Independent real-world ad measurement and targeting — resolving ad exposures,
+        web-pixel traffic and first-party client data to US households, then attributing them to
+        deterministic store visits across CTV, streaming, programmatic and the open web.
+        Built on Snowflake and AWS, and wired into the buying platforms agencies already use.</em></p>
         <ul>
           <li>Core contributor to the data pipeline ingesting <strong>billions of ad impressions</strong>, resolving them to households, and powering real-time attribution reporting for <strong>hundreds of advertising agencies</strong>.</li>
           <li>Designed and built high-performance Java/Spring Boot services across that platform for US enterprise clients.</li>
@@ -917,8 +940,11 @@ footer {
       <article class="card rv">
         <span class="tagline">Ad-tech · measurement · 2022—2026</span>
         <h3>Quorum Measurement Platform</h3>
-        <p>Independent real-world measurement and targeting: a pipeline ingesting billions of ad impressions, resolving them to households, and driving real-time attribution reporting for hundreds of advertising agencies. I owned backend services and the reporting/ETL layer behind it.</p>
-        <span class="stack">Java · Spring Boot · Snowflake · PostgreSQL · AWS · Jasper Reports · LiveRamp · Xandr</span>
+        <p>Independent real-world measurement and targeting: a pipeline ingesting billions of ad impressions, resolving them to households, and driving real-time attribution reporting for hundreds of advertising agencies — the deterministic answer to who a campaign reached and whether it drove a store visit. I owned backend services and the reporting/ETL layer behind it.</p>
+        <div class="links">
+          <span class="stack">Java · Spring Boot · Snowflake · PostgreSQL · AWS · Jasper Reports · LiveRamp · Xandr</span>
+          <a class="ext" href="https://quorum.inc" target="_blank" rel="noopener">quorum.inc</a>
+        </div>
       </article>
       <article class="card rv">
         <span class="tagline">Enterprise · 2022—2025</span>
