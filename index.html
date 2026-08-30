@@ -800,7 +800,7 @@ footer {
     </p>
     <div class="stats rv">
       <div class="stat"><b>4+</b><span>Years shipping production backends</span></div>
-      <div class="stat"><b>15K</b><span>TPS sustained in load testing</span></div>
+      <div class="stat"><b>15K</b><span>TPS the API sustains after tuning</span></div>
       <div class="stat"><b>45%</b><span>Faster reporting after schema redesign</span></div>
       <div class="stat"><b>100s</b><span>Advertising agencies served by pipelines I helped build</span></div>
     </div>
@@ -824,7 +824,7 @@ footer {
         <ul>
           <li>Embedded in Nordstrom's <strong>OVI/EIS inventory management</strong> team as a senior backend Java engineer, on retail inventory systems serving US operations.</li>
           <li>Built and maintained Spring Boot microservices for large-scale inventory data workflows, event ingestion, and service integrations across the OVI platform.</li>
-          <li>Load-tested the platform to <strong>15,000 TPS</strong> with JMeter, handling JVM warm-up so freshly scheduled pods took peak traffic without a first-request latency cliff.</li>
+          <li>Engineered the API to <strong>sustain 15,000 TPS</strong> — profiling under JMeter load, then removing the ceilings: JVM warm-up handling so freshly scheduled pods absorb peak traffic without a first-request latency cliff.</li>
           <li>Tuned Kubernetes <strong>HPA thresholds and min/max pod counts</strong> against observed throughput, and raised cache hit rates by reworking key design and TTLs — cutting datastore load at peak.</li>
           <li>Diagnosed and resolved Redis pipeline saturation and circuit-breaker instability under sustained peak concurrency.</li>
           <li>Authored PostgreSQL purge procedures and Flyway migrations against blue/green RDS instances, enabling <strong>zero-downtime schema deployments</strong>.</li>
