@@ -321,38 +321,11 @@ h1 .last { color: var(--accent-text); display: block; }
 }
 .shot img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; }
 
-.float {
-  position: absolute;
-  z-index: 2;
-  background: var(--raised);
-  border: 1px solid var(--line);
-  border-radius: var(--r-md);
-  box-shadow: var(--shadow-md);
-  padding: .7rem .95rem;
-}
-.float .k {
-  font-family: var(--mono);
-  font-size: .62rem;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--accent-text);
-  display: block;
-}
-.float .v { font-size: .88rem; font-weight: 600; letter-spacing: -.01em; white-space: nowrap; }
-.float.one { top: 10%;   left: -1rem; }
-.float.two { bottom: 9%;  right: -1rem; }
-
 @media (max-width: 62rem) {
   .hero-grid { grid-template-columns: 1fr; gap: 2.75rem; }
   .hero-visual { order: -1; }
   .hero-visual::before { width: 20rem; }
   .shot-wrap { width: min(100%, 17rem); }
-}
-@media (max-width: 34rem) {
-  .float { padding: .5rem .7rem; }
-  .float .v { font-size: .78rem; }
-  .float.one { left: -.4rem; }
-  .float.two { right: -.4rem; }
 }
 
 /* ============================================================
@@ -684,7 +657,7 @@ footer {
   :root { --bg:#fff; --surface:#fff; --raised:#fff; --text:#000; --text-2:#222; --text-3:#555;
           --line:#bbb; --line-soft:#ddd; --accent:#8a3a14; --accent-text:#8a3a14; --accent-soft:#fff;
           --shadow-sm:none; --shadow-md:none; --shadow-lg:none; }
-  .nav-outer, .socials, .hero-cta, .contact-cta, .float { display: none !important; }
+  .nav-outer, .socials, .hero-cta, .contact-cta { display: none !important; }
   .hero-visual::before { display: none !important; }
   .rv { opacity: 1 !important; transform: none !important; }
   .job, .card, .stat, .skill, .edu > div { break-inside: avoid; }
@@ -756,8 +729,6 @@ footer {
     <div class="hero-visual">
       <div class="shot-wrap">
         <div class="shot"><img src="profile.jpg" width="512" height="512" alt="Aziz Ullah" decoding="async"></div>
-        <div class="float one"><span class="k">Backend</span><span class="v">Java &amp; Spring Boot</span></div>
-        <div class="float two"><span class="k">Scale</span><span class="v">15K TPS validated</span></div>
       </div>
     </div>
   </div>
