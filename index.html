@@ -236,7 +236,13 @@ img { max-width: 100%; display: block; }
   border: 1px solid var(--accent-ring);
   font-size: .82rem;
   font-weight: 600;
-  margin-bottom: 1.5rem;
+}
+.pills { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.5rem; }
+.pill-quiet {
+  background: transparent;
+  color: var(--text-2);
+  border-color: var(--line);
+  font-weight: 500;
 }
 .pill i { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); font-style: normal; flex: none; }
 @media (prefers-reduced-motion: no-preference) {
@@ -726,7 +732,10 @@ footer {
 <header class="hero" id="top">
   <div class="shell hero-grid">
     <div class="hero-copy">
-      <span class="pill"><i></i> Systems Limited · on the Nordstrom OVI project</span>
+      <div class="pills">
+        <span class="pill"><i></i> Open to remote roles</span>
+        <span class="pill pill-quiet">Systems Limited · Nordstrom OVI project</span>
+      </div>
       <h1>Aziz<span class="last">Ullah</span></h1>
       <p class="role">Senior Backend Engineer <span>· Java, Spring Boot &amp; AWS</span></p>
       <p class="blurb">
@@ -798,7 +807,7 @@ footer {
 
       <article class="job now rv">
         <div class="job-top">
-          <h3>Senior Software Engineer</h3>
+          <h3>Senior Consultant</h3>
           <span class="when">Apr 2026 — Present</span>
         </div>
         <p class="org"><b>Systems Limited</b> <em>(Confiz, merged into Systems Limited Aug 2026)</em><br>
